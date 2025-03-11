@@ -7,7 +7,7 @@ function App() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch("http://130.225.170.52/api/users")
+        fetch("/api/users")
             .then(res => {
                 if (!res.ok) {
                     throw new Error("Failed to fetch users");

@@ -19,7 +19,7 @@ app.use(cors({
 
 
 // Test API Route
-app.get('/api/users', async (req, res) => {
+app.get('/users', async (req, res) => {
     try {
         console.log('Received request at /api/users'); // ✅ Debugging Log
         const result = await pool.query("SELECT * FROM users");
@@ -31,4 +31,6 @@ app.get('/api/users', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server on port ${PORT} (IPv4+IPv6)`);
+});
