@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+
+.container {
+  display: flex;
+}
+
+.content {
+  margin-left: 220px; /* Make space for the sidebar */
+  padding: 20px;
+  flex-grow: 1;
+}
+

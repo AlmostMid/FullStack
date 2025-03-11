@@ -39,6 +39,32 @@ function App() {
             });
     }, []);
 
+
+    return (
+        <Router>
+            <div className="container">
+                <NavBar /> {/* Sidebar Menu */}
+                <div className="content">
+                    <h1>First Aid Learning</h1>
+                    <h2>Registered Users:</h2>
+                    {loading && <p>Loading users...</p>}
+                    {error && <p className="error">Error: {error}</p>}
+                    <ul>
+                        {users.map(user => (
+                            <li key={user.user_id}>
+                                <strong>{user.first_name} {user.last_name}</strong> - {user.email}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </Router>
+    );
+
+
+
+
+    /*
     return (
         <div className="App">
             <h1>First Aid Learning</h1>
@@ -54,6 +80,10 @@ function App() {
             </ul>
         </div>
     );
+
+    */
+
+
 }
 
 export default App;
