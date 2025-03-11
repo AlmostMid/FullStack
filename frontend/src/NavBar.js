@@ -11,6 +11,11 @@ function NavBar() {
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/sos-numbers">SOS Numbers</Link></li> 
                 <li><Link to="/doctor-list">DoctorList</Link></li>
+                <li><Link to="/dictionary">Dictionary</Link></li>
+                <li><Link to="/profile">Profile</Link></li>
+
+
+                
                 {/* Add more links here when you have more pages */}
             </ul>
         </div>
