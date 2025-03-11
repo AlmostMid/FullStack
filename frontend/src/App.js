@@ -1,10 +1,27 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+// Add import for the pages here.
+import { BrowserRouter as Router, Route, Route } from "react-router-dom"; // Use this for when navigating without reloading the page
+import NavBar from "./NavBar";
 
 function App() {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    <Router>
+        <NavBar>
+            </NavBar>
+            
+       <Routes>
+        // Add the pages here
+
+       </Routes>
+    </Router>
+
+
+
+
 
     useEffect(() => {
         fetch("/api/users")
