@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 // Add import for the pages here.
-import { BrowserRouter as Router, Route, Route } from "react-router-dom"; // Use this for when navigating without reloading the page
+import { BrowserRouter as Router,Routes, Route } from "react-router-dom"; // Use this for when navigating without reloading the page
 import NavBar from "./NavBar";
 
 function App() {
@@ -18,10 +18,7 @@ function App() {
 
        </Routes>
     </Router>
-
-
-
-
+    
 
     useEffect(() => {
         fetch("/api/users")
