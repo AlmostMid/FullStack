@@ -3,6 +3,7 @@ import "./App.css";
 // Add import for the pages here.
 import { BrowserRouter as Router,Routes, Route } from "react-router-dom"; // Use this for when navigating without reloading the page
 import NavBar from "./NavBar";
+import SOSNumbers from "./SOSnumbers";
 
 function App() {
     const [users, setUsers] = useState([]);
@@ -40,27 +41,38 @@ function App() {
     }, []);
 
 
+    
     return (
         <Router>
             <div className="container">
-                <NavBar /> {/* Sidebar Menu */}
+                <NavBar />
                 <div className="content">
-                    <h1>First Aid Learning</h1>
-                    <h2>Registered Users:</h2>
-                    {loading && <p>Loading users...</p>}
-                    {error && <p className="error">Error: {error}</p>}
-                    <ul>
-                        {users.map(user => (
-                            <li key={user.user_id}>
-                                <strong>{user.first_name} {user.last_name}</strong> - {user.email}
-                            </li>
-                        ))}
-                    </ul>
+                    <Routes>
+                        <Route path="/" element={
+                            <div>
+                                <h1>First Aid Learning</h1>
+                                <h2>Registered Users:</h2>
+                                {loading && <p>Loading users...</p>}
+                                {error && <p className="error">Error: {error}</p>}
+                                <ul>
+                                    {users.map(user => (
+                                        <li key={user.user_id}>
+                                            <strong>{user.first_name} {user.last_name}</strong> - {user.email}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        } />
+                        <Route path="/sos-numbers" element={<SOSNumbers />} /> {/* New Route */}
+                    </Routes>
                 </div>
             </div>
         </Router>
     );
+}
 
+
+export default App;
 
 
 
@@ -83,8 +95,4 @@ function App() {
 
     */
 
-
-}
-
-export default App;
 

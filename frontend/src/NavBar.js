@@ -9,6 +9,7 @@ function NavBar() {
             <h2>Menu</h2>
             <ul>
                 <li><Link to="/">Home</Link></li>
+                <li><Link to="/sos-numbers">SOS Numbers</Link></li> 
                 {/* Add more links here when you have more pages */}
             </ul>
         </div>
