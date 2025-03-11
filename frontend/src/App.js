@@ -4,6 +4,7 @@ import "./App.css";
 import { BrowserRouter as Router,Routes, Route } from "react-router-dom"; // Use this for when navigating without reloading the page
 import NavBar from "./NavBar";
 import SOSNumbers from "./SOSnumbers";
+import DoctorList from "./DoctorList";
 
 function App() {
     const [users, setUsers] = useState([]);
@@ -42,6 +43,7 @@ function App() {
 
 
     
+    //edit here to add new page setup
     return (
         <Router>
             <div className="container">
@@ -63,12 +65,20 @@ function App() {
                                 </ul>
                             </div>
                         } />
-                        <Route path="/sos-numbers" element={<SOSNumbers />} /> {/* New Route */}
+
+                        
+                        <Route path="/sos-numbers" element={<SOSNumbers />} />
+                        <Route path="/doctor-list" element={<SOSNumbers />} />
+
+
                     </Routes>
                 </div>
             </div>
         </Router>
     );
+
+
+
 }
 
 
