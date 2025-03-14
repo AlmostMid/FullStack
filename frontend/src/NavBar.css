@@ -1,34 +1,65 @@
-.sidebar {
-    width: 200px;
-    height: 100vh;
-    position: fixed;
-    left: 0;
+/* Hamburger Icon (top-left or wherever you want it) */
+.hamburgerIcon {
+    position: fixed;       /* keep it pinned so user can always open the menu */
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 9999;         /* make sure it’s above other elements */
+  }
+  
+  /* Each bar in the hamburger icon */
+  .hamburgerIcon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;  /* or your chosen color */
+    margin: 5px 0;
+    border-radius: 2px;
+  }
+  
+  /* Sidebar wrapper */
+  .sidebar {
+    position: fixed;       /* so it can slide in over the page content */
     top: 0;
-    background-color: #282c34;
-    padding-top: 20px;
-}
-
-.sidebar h2 {
-    color: white;
-    text-align: center;
-}
-
-.sidebar ul {
-    list-style: none;
+    left: -220px;          /* hide off-screen by default (width = 220px) */
+    width: 220px;
+    height: 100vh;         /* full vertical height */
+    background-color: #0B1E47; /* dark background to match your theme */
+    padding: 20px;
+    box-sizing: border-box;
+    transition: left 0.3s ease; /* smooth slide animation */
+    z-index: 9998;         /* just behind the hamburger icon */
+  }
+  
+  /* Sidebar shown */
+  .sidebar.open {
+    left: 0; /* slide in */
+  }
+  
+  /* Remove default list styling */
+  .sidebar ul {
+    list-style-type: none;
     padding: 0;
-}
-
-.sidebar ul li {
-    padding: 10px;
-    text-align: center;
-}
-
-.sidebar ul li a {
-    text-decoration: none;
-    color: white;
+    margin: 0;
+  }
+  
+  /* Menu items spacing */
+  .sidebar ul li {
+    margin-bottom: 20px;
+  }
+  
+  /* Nav links (rounded “button” style) */
+  .sidebar ul li a {
     display: block;
-}
-
-.sidebar ul li a:hover {
-    background-color: #3a3f47;
-}
+    padding: 14px;
+    background-color: #18264A;
+    border-radius: 16px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.2s;
+  }
+  
+  .sidebar ul li a:hover {
+    background-color: #22366c;
+  }
+  

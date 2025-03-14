@@ -1,42 +1,50 @@
-import React from 'react';
-import { Link } from 'react-router-dom';    
-import './NavBar.css';
-
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./NavBar.css";
 
 function NavBar() {
-    return (
-        <div className="sidebar">
-            <h2>Menu</h2>
-            <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/sos-numbers">SOS Numbers</Link></li> 
-                <li><Link to="/doctor-list">DoctorList</Link></li>
-                <li><Link to="/dictionary">Dictionary</Link></li>
-                <li><Link to="/profile">Profile</Link></li>
+  // isOpen tracks whether the sidebar is visible
+  const [isOpen, setIsOpen] = useState(false);
 
+  // Toggle the sidebar open/closed
+  function toggleSidebar() {
+    setIsOpen(!isOpen);
+  }
 
-                
-                {/* Add more links here when you have more pages */}
-            </ul>
-        </div>
-    );
+  return (
+    <>
+      {/* Hamburger Icon (always visible) */}
+      <div className="hamburgerIcon" onClick={toggleSidebar}>
+        <div className="bar"></div>
+        <div className="bar"></div>
+        <div className="bar"></div>
+      </div>
+
+      {/* Sidebar (appears only if isOpen is true) */}
+      <div className={`sidebar ${isOpen ? "open" : ""}`}>
+        <ul>
+          <li>
+            <Link to="/quiz" onClick={toggleSidebar}>Quiz Dig Selv</Link>
+          </li>
+          <li>
+            <Link to="/profile" onClick={toggleSidebar}>Din Profil</Link>
+          </li>
+          <li>
+            <Link to="/chatbot" onClick={toggleSidebar}>ChatBot</Link>
+          </li>
+          <li>
+            <Link to="/dictionary" onClick={toggleSidebar}>Opslagsværk</Link>
+          </li>
+          <li>
+            <Link to="/doctor-list" onClick={toggleSidebar}>Find Din Læge</Link>
+          </li>
+          <li>
+            <Link to="/sos-numbers" onClick={toggleSidebar}>SOS Numrelisten</Link>
+          </li>
+        </ul>
+      </div>
+    </>
+  );
 }
 
 export default NavBar;
-
-/*
-// Navigation bar to swich between pages in the app
-// Add pages like the link line
-function NavBar() {
-    return (
-        <nav style={{ marginBottom: "20px" }}>
-            <Link to= "/" style={{ marginRight: "10px" }}>Home</Link>
-
-            </nav>
-    );
-}
-
-
-export default NavBar;
-
-*/
