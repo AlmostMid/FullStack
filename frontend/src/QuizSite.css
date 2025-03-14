@@ -1,79 +1,119 @@
-/* QuizSite.css */
-
-.quizContainer {
+/* Make the entire page dark, matching your Figma style */
+.quizPage {
+    background-color: #0B1E47; /* Deep navy */
     min-height: 100vh;
-    background-color: #0B1E47; /* keep the same dark color as the rest */
+    font-family: Arial, sans-serif;
     color: #fff;
-    padding: 20px;
-  }
-  
-  /* If you used .quizHeader previously for the hamburger, 
-     now it's just for vertical spacing/title. */
-  .quizHeader {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  /* Title in the center */
-  .quizTitle {
     margin: 0;
-    font-size: 2rem;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative; /* for .ekgLine positioning */
   }
   
-  /* Subheading */
+  /* Optional EKG "line" in top-right corner */
+  .ekgLine {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 80px;
+    height: 30px;
+    background: linear-gradient(
+      to right,
+      transparent 20%,
+      red 20%,
+      red 40%,
+      transparent 40%,
+      transparent 60%,
+      red 60%,
+      red 80%,
+      transparent 80%
+    );
+    background-size: 20px 30px;
+    background-repeat: repeat;
+  }
+  
+  /* Page Title */
+  .quizTitle {
+    margin-top: 60px;
+    margin-bottom: 10px;
+    font-size: 3rem; /* Big, as in your Figma */
+    text-align: left; /* or center, if the design calls for it */
+  }
+  
+  /* Subtitle/Heading 2 */
   .quizSubtitle {
-    text-align: center;
-    margin: 0 0 20px;
-    font-size: 1.2rem;
+    margin: 0 0 30px;
+    font-size: 1.4rem;
+    font-weight: normal;
+    color: #ddd;
+    text-align: left; /* or center */
   }
   
+  /* Search Bar Wrap */
   .searchBarWrapper {
     display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    justify-content: flex-start; /* or center if you prefer */
+    margin-bottom: 30px;
   }
   
+  /* Search input and icon container */
   .searchInputContainer {
     position: relative;
     width: 300px;
   }
   
+  /* Actual text input */
   .searchInput {
     width: 100%;
     padding: 10px 40px 10px 12px;
-    font-size: 16px;
+    border-radius: 8px;
     border: none;
-    border-radius: 4px;
     outline: none;
+    font-size: 16px;
   }
   
+  /* Magnifying-glass icon at right side of input */
   .searchIcon {
     position: absolute;
-    right: 12px;
     top: 50%;
+    right: 12px;
     transform: translateY(-50%);
     font-size: 18px;
-    color: #aaa;
+    color: #ddd; /* or red if you want the icon red */
   }
   
+  /* Grid of Topics */
   .topicGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 20px;
+    max-width: 900px; /* to constrain width if you like */
+    margin: 0 auto;   /* center the grid horizontally */
   }
   
+  /* Individual Topic Card */
   .topicCard {
-    background-color: #132B50;
-    border-radius: 4px;
+    background-color: #18264A;
+    border-radius: 12px;
     text-align: center;
-    padding: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
+  /* Placeholder icon in each card */
   .topicIcon {
-    width: 40px;
-    height: 40px;
+    width: 56px;
+    height: 56px;
     background-color: #1A2E5E;
-    margin: 0 auto 8px;
-    border-radius: 4px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  /* Topic name text */
+  .topicName {
+    margin: 0;
+    font-size: 16px;
   }
   
