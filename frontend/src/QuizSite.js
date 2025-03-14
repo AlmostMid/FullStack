@@ -25,13 +25,13 @@ function QuizSite() {
       {/* Search Bar */}
       <div className="searchBarWrapper">
         <div className="searchInputContainer">
+        <span className="searchIcon">&#128270;</span>
           <input
             type="text"
             placeholder="Søg på emnet"
             className="searchInput"
           />
           {/* Example “magnifying glass” icon; you can replace with an SVG */}
-          <span className="searchIcon">&#128270;</span>
         </div>
       </div>
 
