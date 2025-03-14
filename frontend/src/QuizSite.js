@@ -12,7 +12,11 @@ function QuizSite() {
   return (
     <div className="quizPage">
       {/* Optional EKG line in top-right (purely for visuals) */}
-      <div className="ekgLine"></div>
+    <img 
+        src="/frontend/public/ekg.jpg"  // Adjust to your actual image path
+        alt="EKG graphic"
+        className="headerImage"
+    />
 
       {/* Title + Subtitle */}
       <h1 className="quizTitle">Quiz Dig Selv</h1>

@@ -11,25 +11,12 @@
   }
   
   /* Optional EKG "line" in top-right corner */
-  .ekgLine {
+  .headerImage {
     position: absolute;
     top: 20px;
     right: 20px;
     width: 80px;
-    height: 30px;
-    background: linear-gradient(
-      to right,
-      transparent 20%,
-      red 20%,
-      red 40%,
-      transparent 40%,
-      transparent 60%,
-      red 60%,
-      red 80%,
-      transparent 80%
-    );
-    background-size: 20px 30px;
-    background-repeat: repeat;
+    height: auto;
   }
   
   /* Page Title */
@@ -37,7 +24,7 @@
     margin-top: 60px;
     margin-bottom: 10px;
     font-size: 3rem; /* Big, as in your Figma */
-    text-align: left; /* or center, if the design calls for it */
+    text-align: center; /* or center, if the design calls for it */
   }
   
   /* Subtitle/Heading 2 */
@@ -46,7 +33,7 @@
     font-size: 1.4rem;
     font-weight: normal;
     color: #ddd;
-    text-align: left; /* or center */
+    text-align: center; /* or center */
   }
   
   /* Search Bar Wrap */
