@@ -1,65 +1,72 @@
-/* Hamburger Icon (top-left or wherever you want it) */
+/* NavBar.css */
+
+/* The hamburger icon in the top-left corner */
 .hamburgerIcon {
-    position: fixed;       /* keep it pinned so user can always open the menu */
-    top: 20px;
-    left: 20px;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    background-color: #18264A;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    z-index: 9999;         /* make sure it’s above other elements */
+    z-index: 9999; /* ensure it's on top of everything */
   }
   
-  /* Each bar in the hamburger icon */
-  .hamburgerIcon .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;  /* or your chosen color */
-    margin: 5px 0;
-    border-radius: 2px;
+  /* The three dots */
+  .hamburgerIcon .dot {
+    width: 6px;
+    height: 6px;
+    background-color: #fff; /* white circles */
+    border-radius: 50%;
+    margin: 3px 0;
   }
   
-  /* Sidebar wrapper */
+  /* The slide-out sidebar */
   .sidebar {
-    position: fixed;       /* so it can slide in over the page content */
+    position: fixed;
     top: 0;
-    left: -220px;          /* hide off-screen by default (width = 220px) */
+    left: -220px; /* hide it off screen by default */
     width: 220px;
-    height: 100vh;         /* full vertical height */
-    background-color: #0B1E47; /* dark background to match your theme */
+    height: 100%;
+    background-color: #081b3c; /* or #0B1E47, whichever shade you like */
     padding: 20px;
     box-sizing: border-box;
-    transition: left 0.3s ease; /* smooth slide animation */
-    z-index: 9998;         /* just behind the hamburger icon */
+    transition: left 0.3s ease;
+    z-index: 9998;
   }
   
-  /* Sidebar shown */
+  /* Sidebar slides in when open */
   .sidebar.open {
-    left: 0; /* slide in */
+    left: 0;
   }
   
-  /* Remove default list styling */
+  /* Unstyled list + spacing for items */
   .sidebar ul {
     list-style-type: none;
     padding: 0;
-    margin: 0;
+    margin: 60px 0 0; /* push the items down a bit so they aren't behind hamburger */
   }
   
-  /* Menu items spacing */
-  .sidebar ul li {
-    margin-bottom: 20px;
-  }
-  
-  /* Nav links (rounded “button” style) */
+  /* Each menu item link */
   .sidebar ul li a {
     display: block;
-    padding: 14px;
-    background-color: #18264A;
+    margin-bottom: 20px;
+    background-color: #0B1E47;
+    padding: 12px 16px;
     border-radius: 16px;
     color: #fff;
-    text-decoration: none;
     text-align: center;
-    transition: background-color 0.2s;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
   }
   
   .sidebar ul li a:hover {
-    background-color: #22366c;
+    background-color: #0e305f;
   }
   

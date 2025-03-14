@@ -37,14 +37,30 @@
   }
 }
 
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #0B1E47; /* dark background for entire page */
+  color: white;              /* default text color (can adjust as needed) */
+  font-family: Arial, sans-serif;
+}
 
+/* Remove container’s white background, so everything is uniform */
 .container {
-  display: flex;
+  display: flex;       /* if you used a flex layout */
+  width: 100%;
+  height: 100%;
+  background-color: #0B1E47; /* same as body */
+  margin: 0;
+  padding: 0;
 }
 
+/* content area can just fill the rest of the space */
 .content {
-  margin-left: 220px; /* Make space for the sidebar */
-  padding: 20px;
   flex-grow: 1;
+  padding: 20px;
+  background-color: #0B1E47; /* keep the same color to avoid a white area */
 }
-

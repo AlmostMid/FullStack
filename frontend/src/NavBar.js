@@ -3,43 +3,54 @@ import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 function NavBar() {
-  // isOpen tracks whether the sidebar is visible
+  // Toggle state for the sidebar
   const [isOpen, setIsOpen] = useState(false);
 
-  // Toggle the sidebar open/closed
-  function toggleSidebar() {
-    setIsOpen(!isOpen);
-  }
+  const toggleSidebar = () => {
+    setIsOpen((prev) => !prev);
+  };
 
   return (
     <>
-      {/* Hamburger Icon (always visible) */}
+      {/* Hamburger icon (always in top-left, or adjust if you prefer) */}
       <div className="hamburgerIcon" onClick={toggleSidebar}>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
+        <span className="dot"></span>
+        <span className="dot"></span>
+        <span className="dot"></span>
       </div>
 
-      {/* Sidebar (appears only if isOpen is true) */}
+      {/* Sidebar off-canvas, slides in when isOpen is true */}
       <div className={`sidebar ${isOpen ? "open" : ""}`}>
         <ul>
           <li>
-            <Link to="/quiz" onClick={toggleSidebar}>Quiz Dig Selv</Link>
+            <Link to="/quiz" onClick={toggleSidebar}>
+              Quiz Dig Selv
+            </Link>
           </li>
           <li>
-            <Link to="/profile" onClick={toggleSidebar}>Din Profil</Link>
+            <Link to="/profile" onClick={toggleSidebar}>
+              Din Profil
+            </Link>
           </li>
           <li>
-            <Link to="/chatbot" onClick={toggleSidebar}>ChatBot</Link>
+            <Link to="/chatbot" onClick={toggleSidebar}>
+              ChatBot
+            </Link>
           </li>
           <li>
-            <Link to="/dictionary" onClick={toggleSidebar}>Opslagsværk</Link>
+            <Link to="/dictionary" onClick={toggleSidebar}>
+              Opslagsværk
+            </Link>
           </li>
           <li>
-            <Link to="/doctor-list" onClick={toggleSidebar}>Find Din Læge</Link>
+            <Link to="/doctor-list" onClick={toggleSidebar}>
+              Find Din Læge
+            </Link>
           </li>
           <li>
-            <Link to="/sos-numbers" onClick={toggleSidebar}>SOS Numrelisten</Link>
+            <Link to="/sos-numbers" onClick={toggleSidebar}>
+              SOS Numrelisten
+            </Link>
           </li>
         </ul>
       </div>
