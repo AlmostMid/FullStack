@@ -39,7 +39,7 @@
   /* Search Bar Wrap */
   .searchBarWrapper {
     display: flex;
-    justify-content: flex-start; /* or center if you prefer */
+    justify-content: center; /* or center if you prefer */
     margin-bottom: 30px;
   }
   
@@ -66,7 +66,7 @@
     right: 12px;
     transform: translateY(-50%);
     font-size: 18px;
-    color: #ddd; /* or red if you want the icon red */
+    color: #f60909; /* or red if you want the icon red */
   }
   
   /* Grid of Topics */
