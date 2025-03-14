@@ -7,6 +7,7 @@ import SOSNumbers from "./SOSnumbers";
 import DoctorList from "./DoctorList";
 import Dictionary from "./Dictionary";
 import Profile from "./Profile";
+import QuizSite from "./QuizSite";
 
 function App() {
     const [users, setUsers] = useState([]);
@@ -68,7 +69,7 @@ function App() {
                             </div>
                         } />
 
-                        
+                        <Route path="/quiz" element={<QuizSite/>} />
                         <Route path="/sos-numbers" element={<SOSNumbers />} />
                         <Route path="/doctor-list" element={<DoctorList />} />
                         <Route path="/dictionary" element={<Dictionary />} />

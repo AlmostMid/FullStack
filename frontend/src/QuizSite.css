@@ -1,0 +1,106 @@
+/* QuizSite.css */
+.quizContainer {
+    background-color: #0B1E47;
+    min-height: 100vh;
+    color: #fff;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Top bar (hamburger + title) */
+  .quizHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* “Hamburger” menu placeholder */
+  .hamburgerIcon {
+    width: 30px;
+    height: 30px;
+    background-color: #132B50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Title */
+  .quizTitle {
+    flex: 1;              /* push the title to center */
+    text-align: center;
+    margin: 0;
+    font-size: 2rem;
+  }
+  
+  /* Empty placeholder on the right side */
+  .quizPlaceholder {
+    width: 30px;
+  }
+  
+  /* Subheading */
+  .quizSubtitle {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+  }
+  
+  /* Search bar container */
+  .searchBarWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Search input container (to position icon) */
+  .searchInputContainer {
+    position: relative;
+    width: 300px;
+  }
+  
+  /* Actual search input */
+  .searchInput {
+    width: 100%;
+    padding: 10px 40px 10px 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  /* Magnifying-glass icon */
+  .searchIcon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #aaa;
+  }
+  
+  /* Grid of topics */
+  .topicGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
+  }
+  
+  /* Individual topic card */
+  .topicCard {
+    background-color: #132B50;
+    border-radius: 4px;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  /* Placeholder for each topic icon */
+  .topicIcon {
+    width: 40px;
+    height: 40px;
+    background-color: #1A2E5E;
+    margin: 0 auto 8px;
+    border-radius: 4px;
+  }
+  
