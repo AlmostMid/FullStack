@@ -47,6 +47,7 @@
   .searchInputContainer {
     position: relative;
     width: 300px;
+    justify-content: center;
   }
   
   /* Actual text input */
