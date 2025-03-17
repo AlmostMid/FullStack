@@ -3,8 +3,6 @@ import "./App.css";
 // Add import for the pages here.
 import { BrowserRouter as Router,Routes, Route } from "react-router-dom"; // Use this for when navigating without reloading the page
 import NavBar from "./NavBar";
-import SOSNumbers from "./SOSnumbers";
-import DoctorList from "./DoctorList";
 import Dictionary from "./Dictionary";
 import Profile from "./Profile";
 import QuizSite from "./QuizSite";
@@ -70,13 +68,8 @@ function App() {
                         } />
 
                         <Route path="/quiz" element={<QuizSite/>} />
-                        <Route path="/sos-numbers" element={<SOSNumbers />} />
-                        <Route path="/doctor-list" element={<DoctorList />} />
                         <Route path="/dictionary" element={<Dictionary />} />
                         <Route path="/profile" element={<Profile />} />
-
-
-
 
                     </Routes>
                 </div>

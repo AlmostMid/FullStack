@@ -1,0 +1,59 @@
+.questionsPage {
+    background-color: #18264A; /* Matches .topicCard background */
+    color: white;
+    min-height: 100vh;
+    padding: 30px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .questionstitle {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  
+  .questionssubtitle {
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: normal;
+  }
+  
+  .options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .option-button {
+    padding: 10px 15px;
+    background-color: #474a9e;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    text-align: left;
+    font-size: 16px;
+  }
+  
+  .option-button:hover {
+    background-color: #5a5ebf;
+  }
+  
+  .option-button.selected {
+    background-color: #6a5acd;
+  }
+
+  .question-counter {
+    font-size: 16px;
+    margin-top: 20px;
+    color: white;
+  }
+
+  .option-button.correct {
+    background-color: #4CAF50; 
+  }
+  
+  .option-button.wrong {
+    background-color: #F44336;
+  }
+  
+  

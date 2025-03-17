@@ -1,106 +1,112 @@
-/* Make the entire page dark, matching your Figma style */
+/* Entire quiz page background and setup */
 .quizPage {
-    background-color: #0B1E47; /* Deep navy */
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    color: #fff;
-    margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
-    position: relative; /* for .ekgLine positioning */
-  }
-  
-  /* Optional EKG "line" in top-right corner */
-  .headerImage {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 80px;
-    height: auto;
-  }
-  
-  /* Page Title */
-  .quizTitle {
-    margin-top: 60px;
-    margin-bottom: 10px;
-    font-size: 3rem; /* Big, as in your Figma */
-    text-align: center; /* or center, if the design calls for it */
-  }
-  
-  /* Subtitle/Heading 2 */
-  .quizSubtitle {
-    margin: 0 0 30px;
-    font-size: 1.4rem;
-    font-weight: normal;
-    color: #ddd;
-    text-align: center; /* or center */
-  }
-  
-  /* Search Bar Wrap */
-  .searchBarWrapper {
-    display: flex;
-    justify-content: center; /* or center if you prefer */
-    margin-bottom: 30px;
-  }
-  
-  .searchInputContainer {
-    position: relative;
-    width: 300px; /* adjust as needed */
-  }
-  
-  .searchInput {
-    width: 100%;
-    /* Add left padding so text doesn't overlap the icon */
-    padding: 10px 10px 10px 40px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    outline: none;
-  }
-  
-  /* Icon is positioned absolutely on the left side */
-  .searchIcon {
-    position: absolute;
-    left: 12px;              /* place it inside the input on the left */
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 18px;
-    color: #aaa;             /* your desired color */
-  }
-  
-  
-  /* Grid of Topics */
-  .topicGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 20px;
-    max-width: 900px; /* to constrain width if you like */
-    margin: 0 auto;   /* center the grid horizontally */
-  }
-  
-  /* Individual Topic Card */
-  .topicCard {
-    background-color: #18264A;
-    border-radius: 12px;
-    text-align: center;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Placeholder icon in each card */
-  .topicIcon {
-    width: 56px;
-    height: 56px;
-    background-color: #1A2E5E;
-    border-radius: 8px;
-    margin-bottom: 10px;
-  }
-  
-  /* Topic name text */
-  .topicName {
-    margin: 0;
-    font-size: 16px;
-  }
-  
+  background-color: #0B1E47; /* Deep navy */
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* EKG image in top-right corner (optional) */
+.headerImage {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 80px;
+  height: auto;
+}
+
+/* Main Quiz Title */
+.quizTitle {
+  margin-top: 60px;
+  margin-bottom: 10px;
+  font-size: 3rem;
+  text-align: center;
+}
+
+/* Subtitle */
+.quizSubtitle {
+  margin: 0 0 30px;
+  font-size: 1.4rem;
+  font-weight: normal;
+  color: #ddd;
+  text-align: center;
+}
+
+/* Search bar wrapper (if used) */
+.searchBarWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.searchInputContainer {
+  position: relative;
+  width: 300px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 10px 10px 40px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #aaa;
+}
+
+/* Grid of topic cards */
+.topicGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Individual topic cards */
+.topicCard {
+  background-color: #18264A;
+  border-radius: 12px;
+  text-align: center;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.topicCard:hover {
+  background-color: #213462;
+}
+
+.topicCard:active {
+  transform: scale(0.98);
+}
+
+/* Icon placeholder within each topic card */
+.topicIcon {
+  width: 56px;
+  height: 56px;
+  background-color: #1A2E5E;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Topic name text styling */
+.topicName {
+  margin: 0;
+  font-size: 16px;
+}
