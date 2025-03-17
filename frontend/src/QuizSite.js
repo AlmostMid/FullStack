@@ -30,6 +30,10 @@ function QuizSite() {
     { name: "Allergi", lessonId: "lesson_13" }
   ];
 
+  const handleTopicClick = (lessonId) => {
+    navigate(`/quiz-start/${lessonId}`);
+};
+
   return (
     <div className="quizPage">
     <img 
@@ -54,9 +58,9 @@ function QuizSite() {
       {/* Topic Cards Grid */}
       <div className="topicGrid">
         {topics.map((topic, index) => (
-          <div className="topicCard" key={index} onClick={() => navigate("/quiz-start")}>
+          <div className="topicCard" key={index} onClick={() => handleTopicClick(topic.lessonId)}>
             <div className="topicIcon" />
-            <p className="topicName">{topic}</p>
+            <p className="topicName">{topic.name}</p>
           </div>
         ))}
       </div>

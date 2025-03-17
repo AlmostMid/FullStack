@@ -55,5 +55,27 @@
   .option-button.wrong {
     background-color: #F44336;
   }
+
+  .next-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #2867B2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    float: right;
+  }
   
+  .next-button:hover {
+    background-color: #4178C2;
+  }
   
+  .option-button.correct {
+    background-color: #4CAF50;
+  }
+  
+  .option-button.wrong {
+    background-color: #F44336;
+  }
