@@ -1,48 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./QuizSite.css";
+
 function QuizSite() {
   const navigate = useNavigate();
-  // Tilføj emner her lessonID skal matche det i databasen
-  const topics = [
-    { name: "Sår", lessonId: "lesson_1" },
-    { name: "Forgiftning", lessonId: "lesson_2" },
-    { name: "Brud", lessonId: "lesson_3" },
-    { name: "Forstuvning", lessonId: "lesson_3" },
-    { name: "Hovedet", lessonId: "lesson_4" },
-    { name: "Hjertestop", lessonId: "lesson_5" },
-    { name: "Forbrænding", lessonId: "lesson_6" },
-    { name: "Hypotermi", lessonId: "lesson_7" },
-    { name: "Hedeslag", lessonId: "lesson_8" },
-    { name: "Blødninger", lessonId: "lesson_8" },
-    { name: "Allergi", lessonId: "lesson_8" },
-    { name: "Kvælning", lessonId: "lesson_9" },
-    { name: "Epilepsi", lessonId: "lesson_10" },
-    { name: "Diabetes", lessonId: "lesson_11" },
-    { name: "Astma", lessonId: "lesson_12" },
-    { name: "Slagtilfælde", lessonId: "lesson_12" },
-    { name: "Anafylaksi", lessonId: "lesson_13" },
-    { name: "Shock", lessonId: "lesson_12" },
-    { name: "Allergi", lessonId: "lesson_13" }
-  ];
+  const [topics, setTopics] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/lessons") // Fetch all lessons from the backend
+      .then((response) => response.json())
+      .then((data) => setTopics(data)) // Store fetched lessons in state
+      .catch((error) => console.error("Error fetching lessons:", error));
+  }, []);
 
   const handleTopicClick = (lessonId) => {
-    navigate(`/quiz-start/${lessonId}`);
-};
+    navigate(`/quiz-start/${lessonId}`); // Pass UUID instead of lesson name
+  };
 
   return (
     <div className="quizPage">
-    <img 
-        src="/frontend/public/ekg.jpg"  // Adjust to your actual image path
+      <img 
+        src="/frontend/public/ekg.jpg"  
         alt="EKG graphic"
         className="headerImage"
-    />
+      />
       <h1 className="quizTitle">Quiz Dig Selv</h1>
       <h2 className="quizSubtitle">Vælg dit emne</h2>
 
       <div className="searchBarWrapper">
         <div className="searchInputContainer">
-        <span className="searchIcon">&#128270;</span>
+          <span className="searchIcon">&#128270;</span>
           <input
             type="text"
             placeholder="Søg på emnet"
@@ -53,12 +40,16 @@ function QuizSite() {
 
       {/* Topic Cards Grid */}
       <div className="topicGrid">
-        {topics.map((topic, index) => (
-          <div className="topicCard" key={index} onClick={() => handleTopicClick(topic.lessonId)}>
-            <div className="topicIcon" />
-            <p className="topicName">{topic.name}</p>
-          </div>
-        ))}
+        {topics.length > 0 ? (
+          topics.map((topic) => (
+            <div className="topicCard" key={topic.lesson_id} onClick={() => handleTopicClick(topic.lesson_id)}>
+              <div className="topicIcon" />
+              <p className="topicName">{topic.lesson_name}</p>
+            </div>
+          ))
+        ) : (
+          <p>Indlæser emner...</p> // Display loading message if no topics are fetched
+        )}
       </div>
     </div>
   );

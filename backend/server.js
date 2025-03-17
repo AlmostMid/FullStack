@@ -15,8 +15,8 @@ const pool = new Pool({
     connectionString: process.env.DATABASE_URL
 });
 
-// Fetch question by lesson ID
-app.get('/api/questions/lesson/:lessonId', async (req, res) => {
+// ✅ Fetch exercises for a lesson
+app.get('/exercises/lesson/:lessonId', async (req, res) => {
     const { lessonId } = req.params;
 
     try {
@@ -26,21 +26,24 @@ app.get('/api/questions/lesson/:lessonId', async (req, res) => {
             WHERE lesson_id = $1
         `, [lessonId]);
 
-        if (questionsResult.rows.length === 0) {
-            return res.status(404).json({ error: 'Lesson or exercises not found.' });
+        if (questionsResult.rowCount === 0) {
+            return res.status(404).json({ error: `No exercises found for lesson ID: ${lessonId}` });
         }
 
         const questionsWithOptions = await Promise.all(questionsResult.rows.map(async (question) => {
             const optionsResult = await pool.query(`
-                SELECT DISTINCT user_answer
-                FROM user_exercises
-                WHERE exercise_id = $1
+                SELECT DISTINCT user_answer FROM user_exercises WHERE exercise_id = $1
             `, [question.exercise_id]);
+
+            let options = optionsResult.rows.map(row => row.user_answer);
+            if (!options.includes(question.correct_answer)) {
+                options.push(question.correct_answer);
+            }
 
             return {
                 exerciseId: question.exercise_id,
                 question: question.question_text,
-                options: optionsResult.rows.map(row => row.user_answer),
+                options: options,
                 correctAnswer: question.correct_answer
             };
         }));
@@ -48,12 +51,12 @@ app.get('/api/questions/lesson/:lessonId', async (req, res) => {
         res.json(questionsWithOptions);
     } catch (err) {
         console.error("Database error:", err.message);
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ error: `Database error: ${err.message}` });
     }
 });
 
-// Fetch lesson name by lessonId
-app.get('/api/lessons/:lessonId', async (req, res) => {
+// ✅ Fetch a single lesson name by lessonId
+app.get('/lessons/:lessonId', async (req, res) => {
     const { lessonId } = req.params;
 
     try {
@@ -63,25 +66,38 @@ app.get('/api/lessons/:lessonId', async (req, res) => {
             WHERE lesson_id = $1
         `, [lessonId]);
 
-        if (lessonResult.rows.length === 0) {
-            return res.status(404).json({ error: 'Lesson not found.' });
+        if (lessonResult.rowCount === 0) {
+            return res.status(404).json({ error: `Lesson not found for ID: ${lessonId}` });
         }
 
         res.json({ lesson_name: lessonResult.rows[0].lesson_name });
     } catch (err) {
         console.error("Database error:", err.message);
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ error: `Database error: ${err.message}` });
     }
 });
 
-// Test API Route
+// ✅ Fetch all lessons for frontend
+app.get('/lessons', async (req, res) => {
+    try {
+        const lessonsResult = await pool.query(`
+            SELECT lesson_id, lesson_name FROM lessons
+        `);
+        res.json(lessonsResult.rows);
+    } catch (err) {
+        console.error("Database error:", err.message);
+        res.status(500).json({ error: `Database error: ${err.message}` });
+    }
+});
+
+// ✅ Fetch all users (for testing)
 app.get('/users', async (req, res) => {
     try {
         const result = await pool.query("SELECT * FROM users");
         res.json(result.rows);
     } catch (err) {
         console.error("Database error:", err.message);
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ error: `Database error: ${err.message}` });
     }
 });
 

@@ -10,7 +10,7 @@ function QuestionsSite() {
   const [isCorrect, setIsCorrect] = useState(false);
 
   useEffect(() => {
-    fetch(`/api/questions/lesson/${lessonId}`)
+    fetch(`/api/exercises/lesson/${lessonId}`)
       .then(response => response.json())
       .then(data => {
         setQuestions(data);
