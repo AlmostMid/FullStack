@@ -21,8 +21,7 @@ function App() {
             
        <Routes>
         // Add the pages here
-        <Route path="/quiz" element={<QuizSite />} />
-        <Route path="/quiz-start" element={<QuizStartButton />} />
+        
 
        </Routes>
     </Router>
@@ -73,6 +72,7 @@ function App() {
                         } />
 
                         <Route path="/quiz" element={<QuizSite/>} />
+                        <Route path="/quiz-start" element={<QuizStartButton />} />
                         <Route path="/sos-numbers" element={<SOSNumbers />} />
                         <Route path="/doctor-list" element={<DoctorList />} />
                         <Route path="/dictionary" element={<Dictionary />} />
