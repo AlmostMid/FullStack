@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 // Add import for the pages here.
-import { BrowserRouter as Router,Routes, Route } from "react-router-dom"; // Use this for when navigating without reloading the page
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Use this for when navigating without reloading the page
 import NavBar from "./NavBar";
 import Dictionary from "./Dictionary";
 import Profile from "./Profile";
@@ -16,15 +16,15 @@ function App() {
 
     <Router>
         <NavBar>
-            </NavBar>
-            
-       <Routes>
-        // Add the pages here
-        
+        </NavBar>
 
-       </Routes>
+        <Routes>
+        // Add the pages here
+
+
+        </Routes>
     </Router>
-    
+
 
     useEffect(() => {
         fetch("/api/users")
@@ -46,7 +46,7 @@ function App() {
     }, []);
 
 
-    
+
     //edit here to add new page setup
     return (
         <Router>
@@ -70,8 +70,9 @@ function App() {
                             </div>
                         } />
 
-                        <Route path="/quiz" element={<QuizSite/>} />
-                        <Route path="/quiz-start" element={<QuizStartButton />} />
+                        <Route path="/quiz" element={<QuizSite />} />
+                        <Route path="/quiz-start/:lessonId" element={<QuizStartButton />} />
+                        <Route path="/questions/:lessonId" element={<QuestionsSite />} />
                         <Route path="/dictionary" element={<Dictionary />} />
                         <Route path="/profile" element={<Profile />} />
 
@@ -90,23 +91,23 @@ export default App;
 
 
 
-    /*
-    return (
-        <div className="App">
-            <h1>First Aid Learning</h1>
-            <h2>Registered Users:</h2>
-            {loading && <p>Loading users...</p>}
-            {error && <p className="error">Error: {error}</p>}
-            <ul>
-                {users.map(user => (
-                    <li key={user.user_id}>
-                        <strong>{user.first_name} {user.last_name}</strong> - {user.email}
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
+/*
+return (
+    <div className="App">
+        <h1>First Aid Learning</h1>
+        <h2>Registered Users:</h2>
+        {loading && <p>Loading users...</p>}
+        {error && <p className="error">Error: {error}</p>}
+        <ul>
+            {users.map(user => (
+                <li key={user.user_id}>
+                    <strong>{user.first_name} {user.last_name}</strong> - {user.email}
+                </li>
+            ))}
+        </ul>
+    </div>
+);
 
-    */
+*/
 
 

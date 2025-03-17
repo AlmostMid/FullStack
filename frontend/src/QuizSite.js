@@ -1,10 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./QuizSite.css";
-
-import { BrowserRouter as Router,Routes, Route } from "react-router-dom"; // Use this for when navigating without reloading the page
-import NavBar from "./NavBar";
-
 function QuizSite() {
   const navigate = useNavigate();
   // Tilføj emner her lessonID skal matche det i databasen
