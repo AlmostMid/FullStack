@@ -13,7 +13,6 @@ function QuizSite() {
 
   return (
     <div className="quizPage">
-      {/* Optional EKG line in top-right (purely for visuals) */}
     <img 
         src="/frontend/public/ekg.jpg"  // Adjust to your actual image path
         alt="EKG graphic"
