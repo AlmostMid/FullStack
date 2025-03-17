@@ -40,7 +40,7 @@ function QuizSite() {
       {/* Topic Cards Grid */}
       <div className="topicGrid">
         {topics.map((topic, index) => (
-          <div className="topicCard" key={index}>
+          <div className="topicCard" key={index} onClick={() => navigate("/quiz-start")}>
             <div className="topicIcon" />
             <p className="topicName">{topic}</p>
           </div>

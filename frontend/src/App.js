@@ -21,6 +21,8 @@ function App() {
             
        <Routes>
         // Add the pages here
+        <Route path="/quiz" element={<QuizSite />} />
+        <Route path="/quiz-start" element={<QuizStartPage />} />
 
        </Routes>
     </Router>
