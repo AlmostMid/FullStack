@@ -1,10 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./QuizSite.css";
 
 import { BrowserRouter as Router,Routes, Route } from "react-router-dom"; // Use this for when navigating without reloading the page
 import NavBar from "./NavBar";
 
 function QuizSite() {
+  const navigate = useNavigate();
   // Tilføj emner her lessonID skal matche det i databasen
   const topics = [
     { name: "Sår", lessonId: "lesson_1" },
@@ -52,7 +54,7 @@ function QuizSite() {
       {/* Topic Cards Grid */}
       <div className="topicGrid">
         {topics.map((topic, index) => (
-          <div className="topicCard" key={index}>
+          <div className="topicCard" key={index} onClick={() => navigate("/quiz-start")}>
             <div className="topicIcon" />
             <p className="topicName">{topic}</p>
           </div>

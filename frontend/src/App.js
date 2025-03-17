@@ -6,6 +6,7 @@ import NavBar from "./NavBar";
 import Dictionary from "./Dictionary";
 import Profile from "./Profile";
 import QuizSite from "./QuizSite";
+import QuizStartButton from "./QuizStartButton";
 
 function App() {
     const [users, setUsers] = useState([]);
@@ -18,6 +19,8 @@ function App() {
             
        <Routes>
         // Add the pages here
+        <Route path="/quiz" element={<QuizSite />} />
+        <Route path="/quiz-start" element={<QuizStartButton />} />
 
        </Routes>
     </Router>
