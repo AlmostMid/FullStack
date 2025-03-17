@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "./QuizStartButton.css";
 
-const QuizStartPage = () => {
+const QuizStartButton = () => {
     const canvasRef = useRef(null);
 
     useEffect(() => {
@@ -28,7 +28,7 @@ const QuizStartPage = () => {
     }, []);
 
     return (
-        <div className="quizPage">
+        <div className="quizStartButton">
             {/* Optional EKG line in top-right */}
             <canvas ref={canvasRef} className="headerImage" />
 
@@ -41,4 +41,4 @@ const QuizStartPage = () => {
     );
 };
 
-export default QuizStartPage;
+export default QuizStartButton;
