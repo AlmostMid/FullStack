@@ -1,5 +1,5 @@
 
-.quizPage {
+.quizStartButton {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,6 +9,7 @@
     color: white;
     font-family: Arial, sans-serif;
     position: relative;
+    text-align: center;
 }
 
 .headerImage {
@@ -30,7 +31,7 @@
     color: white;
     font-size: 24px;
     font-weight: bold;
-    padding: 15px 40px;
+    padding: 10px 20px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
