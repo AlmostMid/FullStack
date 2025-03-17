@@ -8,6 +8,7 @@ import DoctorList from "./DoctorList";
 import Dictionary from "./Dictionary";
 import Profile from "./Profile";
 import QuizSite from "./QuizSite";
+import QuizStartButton from "./QuizStartButton";
 
 function App() {
     const [users, setUsers] = useState([]);

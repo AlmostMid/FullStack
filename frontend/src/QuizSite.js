@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./QuizSite.css";
 
 function QuizSite() {
+  const navigate = useNavigate();
   // Just an array of topic strings to map over for demonstration
   const topics = [
     "Sår", "Forgiftning", "Brud", "Forstuvning",
