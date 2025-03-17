@@ -2,14 +2,37 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./QuizSite.css";
 
+import { BrowserRouter as Router,Routes, Route } from "react-router-dom"; // Use this for when navigating without reloading the page
+import NavBar from "./NavBar";
+
 function QuizSite() {
   const navigate = useNavigate();
-  // Just an array of topic strings to map over for demonstration
+  // Tilføj emner her lessonID skal matche det i databasen
   const topics = [
-    "Sår", "Forgiftning", "Brud", "Forstuvning",
-    "Hovedet", "Hjertestop", "Sår", "Forgiftning",
-    "Brud", "Forstuvning", "Hovedet", "Hjertestop",
+    { name: "Sår", lessonId: "lesson_1" },
+    { name: "Forgiftning", lessonId: "lesson_2" },
+    { name: "Brud", lessonId: "lesson_3" },
+    { name: "Forstuvning", lessonId: "lesson_3" },
+    { name: "Hovedet", lessonId: "lesson_4" },
+    { name: "Hjertestop", lessonId: "lesson_5" },
+    { name: "Forbrænding", lessonId: "lesson_6" },
+    { name: "Hypotermi", lessonId: "lesson_7" },
+    { name: "Hedeslag", lessonId: "lesson_8" },
+    { name: "Blødninger", lessonId: "lesson_8" },
+    { name: "Allergi", lessonId: "lesson_8" },
+    { name: "Kvælning", lessonId: "lesson_9" },
+    { name: "Epilepsi", lessonId: "lesson_10" },
+    { name: "Diabetes", lessonId: "lesson_11" },
+    { name: "Astma", lessonId: "lesson_12" },
+    { name: "Slagtilfælde", lessonId: "lesson_12" },
+    { name: "Anafylaksi", lessonId: "lesson_13" },
+    { name: "Shock", lessonId: "lesson_12" },
+    { name: "Allergi", lessonId: "lesson_13" }
   ];
+
+  const handleTopicClick = (lessonId) => {
+    navigate(`/quiz-start/${lessonId}`);
+};
 
   return (
     <div className="quizPage">
@@ -18,12 +41,9 @@ function QuizSite() {
         alt="EKG graphic"
         className="headerImage"
     />
-
-      {/* Title + Subtitle */}
       <h1 className="quizTitle">Quiz Dig Selv</h1>
       <h2 className="quizSubtitle">Vælg dit emne</h2>
 
-      {/* Search Bar */}
       <div className="searchBarWrapper">
         <div className="searchInputContainer">
         <span className="searchIcon">&#128270;</span>
@@ -32,17 +52,15 @@ function QuizSite() {
             placeholder="Søg på emnet"
             className="searchInput"
           />
-          {/* Example “magnifying glass” icon; you can replace with an SVG */}
         </div>
       </div>
 
       {/* Topic Cards Grid */}
       <div className="topicGrid">
         {topics.map((topic, index) => (
-          <div className="topicCard" key={index} onClick={() => navigate("/quiz-start")} 
-          style={{ cursor: "pointer"}}>
+          <div className="topicCard" key={index} onClick={() => handleTopicClick(topic.lessonId)}>
             <div className="topicIcon" />
-            <p className="topicName">{topic}</p>
+            <p className="topicName">{topic.name}</p>
           </div>
         ))}
       </div>

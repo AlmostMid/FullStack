@@ -1,8 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import "./QuizStartButton.css";
 
 const QuizStartButton = () => {
     const canvasRef = useRef(null);
+    const navigate = useNavigate();
+    const { lessonId } = useParams(); // Extract lessonId from URL
+    const [topicName, setTopicName] = useState("");
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -25,7 +29,19 @@ const QuizStartButton = () => {
             ctx.stroke();
         }
         drawECG();
-    }, []);
+
+        // Fetch the topic name from backend using lessonId
+        fetch(`/api/lessons/${lessonId}`)
+            .then(res => res.json())
+            .then(data => {
+                setTopicName(data.lesson_name); // assuming backend returns {"lesson_name": "Sår"}
+            })
+            .catch(error => console.error('Error fetching topic name:', error));
+    }, [lessonId]);
+
+    const handleStartQuiz = () => {
+        navigate(`/questions/${lessonId}`);
+    };
 
     return (
         <div className="quizStartButton">
@@ -33,10 +49,15 @@ const QuizStartButton = () => {
             <canvas ref={canvasRef} className="headerImage" />
 
             {/* Title */}
-            <h1 className="quizTitle">Test din viden</h1>
-            
+            <h1 className="quizTitle">Test din viden i</h1>
+
+            {/* Subtitle dynamically set based on backend */}
+            <h2 className="quizSubtitle">{topicName || "Indlæser emne..."}</h2>
+
             {/* Start Button */}
-            <button className="startButton">START</button>
+            <button className="startButton" onClick={handleStartQuiz}>
+                START
+            </button>
         </div>
     );
 };

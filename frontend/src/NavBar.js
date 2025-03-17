@@ -42,16 +42,6 @@ function NavBar() {
               Opslagsværk
             </Link>
           </li>
-          <li>
-            <Link to="/doctor-list" onClick={toggleSidebar}>
-              Find Din Læge
-            </Link>
-          </li>
-          <li>
-            <Link to="/sos-numbers" onClick={toggleSidebar}>
-              SOS Numrelisten
-            </Link>
-          </li>
         </ul>
       </div>
     </>
