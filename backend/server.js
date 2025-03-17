@@ -75,7 +75,7 @@ app.get('/api/lessons/:lessonId', async (req, res) => {
 });
 
 // Test API Route
-app.get('/api/users', async (req, res) => {
+app.get('/users', async (req, res) => {
     try {
         const result = await pool.query("SELECT * FROM users");
         res.json(result.rows);
