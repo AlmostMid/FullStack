@@ -1,6 +1,8 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import './Dictionary.css'; // Ensure this CSS file exists
+import { FaArrowLeft } from 'react-icons/fa';
+import './Dictionary.css'; 
+import './SubCategoryDictionary.css'; 
 
 
 
@@ -20,7 +22,12 @@ function SubCategoryDictionary() {
 
     return (
         <div className="dictionary-container">
-            <button className="back-button" onClick={() => navigate(-1)}>⬅ Tilbage</button>
+            <div className="back-button-container">
+                <button className="back-button" onClick={() => navigate(-1)}>
+                    <FaArrowLeft size={24} />
+                </button>
+            </div>
+
             <h1>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
             <p>Typer</p>
             

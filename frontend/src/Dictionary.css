@@ -1,24 +1,115 @@
 .dictionary-container {
     text-align: center;
-    padding: 20px;
+    padding: 80px 20px 20px;
     color: white;
-    background-color: #102B55;
+    background-color: transparent;
     height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+
 }
 
-.category-grid, .subcategory-grid {
-    display: grid;
+h1{
+    font-size: 2.5rem;
+    margin-top: 20px;
+}
+
+p{
+    margin-bottom: 20px;
+}
+
+
+.sub-header {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    font-weight: 300;
+    color: #AABBDD; 
+    text-align: right;
+    width: fit-content;
+}
+
+.main-title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+
+.content-box {
+    background-color: #122B5D;
+    padding: 30px;
+    width: 90%; 
+    max-width: 1100px;
+    border-radius: 15px;
+    margin-top: 10px; 
+    margin-left: auto;
+    margin-right:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+
+
+.choose-topic {
+    font-size: 1.6rem;
+    align-items: center;
+    padding-top: 2%;
+    margin-top: 5px;
+    text-align: left;
+    width: 50%;
+    
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #3D4E88;
+    border-radius: 10px;
+    padding: 10px;
+    width: 50%;
+    margin-top: 10px;
+}
+
+.search-bar input {
+    width: 100%;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    padding-left: 10px;
+}
+
+.search-icon {
+    color: #FF0000;
+    font-size: 1.2rem;
+}
+
+
+.category-grid {
+    display: flex;
+    flex-wrap: wrap;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 10px;
+    gap: 15px;
     justify-content: center;
-    padding: 20px;
+    max-width: 80%;
+    margin-top: 20px;
+    width: 100%;
 }
 
-.category-box, .subcategory-box {
-    background-color: #1D3F75;
+.category-box {
+    background-color: #3D4E88;
     border: none;
     color: white;
     padding: 15px;
+    padding-top: 25px;
+    padding-bottom: 25px;
     border-radius: 10px;
     text-align: center;
     font-size: 16px;
@@ -26,15 +117,25 @@
     transition: 0.3s;
 }
 
-.category-box:hover, .subcategory-box:hover {
-    background-color: #2A5DAA;
+.category-box:hover {
+    background-color: #5376aa;
+}
+
+.back-button-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 .back-button {
     background: none;
     border: none;
     color: white;
-    font-size: 20px;
     cursor: pointer;
-    margin-bottom: 10px;
+    font-size: 24px;
+    transition: 0.3s ease;
+}
+
+.back-button:hover {
+    color: #a1c3ff;
 }
