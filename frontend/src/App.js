@@ -8,6 +8,8 @@ import Profile from "./Profile";
 import QuizSite from "./QuizSite";
 import QuizStartButton from "./QuizStartButton";
 import QuestionsSite from "./QuestionsSite";
+import SubCategoryDictionary from './SubCategoryDictionary';
+
 
 function App() {
     const [users, setUsers] = useState([]);
@@ -74,6 +76,7 @@ function App() {
                         <Route path="/quiz-start/:lessonId" element={<QuizStartButton />} />
                         <Route path="/questions/:lessonId" element={<QuestionsSite />} />
                         <Route path="/dictionary" element={<Dictionary />} />
+                        <Route path="/dictionary/:category" element={<SubCategoryDictionary/>} />
                         <Route path="/profile" element={<Profile />} />
 
                     </Routes>
