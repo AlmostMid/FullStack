@@ -7,6 +7,7 @@ function NavBar() {
     return (
         <nav style={{ marginBottom: "20px" }}>
             <Link to= "/" style={{ marginRight: "10px" }}>Home</Link>
+            <Link to="/account" style={{ marginRight: "10px" }}>Account</Link>
 
             </nav>
     );

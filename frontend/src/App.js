@@ -3,6 +3,7 @@ import "./App.css";
 // Add import for the pages here.
 import { BrowserRouter as Router,Routes, Route } from "react-router-dom"; // Use this for when navigating without reloading the page
 import NavBar from "./NavBar";
+import AccountPage from "./pages/AccountPage";
 
 function App() {
     const [users, setUsers] = useState([]);
@@ -15,6 +16,8 @@ function App() {
             
        <Routes>
         // Add the pages here
+
+        <Route path="/account" element={<AccountPage />} />
 
        </Routes>
     </Router>
