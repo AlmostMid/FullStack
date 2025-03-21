@@ -2,20 +2,29 @@
 
 /* The hamburger icon in the top-left corner */
 .hamburgerIcon {
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    width: 40px;
-    height: 40px;
-    background-color: #18264A;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 9999; /* ensure it's on top of everything */
-  }
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 40px;
+  height: 40px;
+  background-color: #18264A;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 9999;
+
+  /* Fade effect */
+  opacity: 0.05;                /* Start partially transparent */
+  transition: opacity 0.3s ease;
+}
+
+.hamburgerIcon:hover {
+  opacity: 1;                  /* Fully opaque on hover */
+}
+
   
   /* The three dots */
   .hamburgerIcon .dot {
