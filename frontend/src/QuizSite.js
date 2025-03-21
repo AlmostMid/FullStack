@@ -17,6 +17,13 @@ function QuizSite() {
     navigate(`/quiz-start/${lessonId}`); // Pass UUID instead of lesson name
   };
 
+  useEffect(() => {
+    // If all questions are answered, redirect to the LessonComplete page
+    if (currentQuestionIndex === totalQuestions) {
+      navigate(`/lesson-complete/${lessonId}`);
+    }
+  }, [currentQuestionIndex, totalQuestions, lessonId, navigate]);
+
   return (
     <div className="quizPage">
       <img 
