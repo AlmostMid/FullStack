@@ -15,7 +15,6 @@ const pool = new Pool({
     connectionString: process.env.DATABASE_URL
 });
 
-// ✅ Fetch exercises for a lesson
 app.get('/exercises/lesson/:lessonId', async (req, res) => {
     const { lessonId } = req.params;
 
@@ -32,18 +31,13 @@ app.get('/exercises/lesson/:lessonId', async (req, res) => {
 
         const questionsWithOptions = await Promise.all(questionsResult.rows.map(async (question) => {
             const optionsResult = await pool.query(`
-                SELECT DISTINCT user_answer FROM user_exercises WHERE exercise_id = $1
+                SELECT option_text FROM exercise_options WHERE exercise_id = $1
             `, [question.exercise_id]);
-
-            let options = optionsResult.rows.map(row => row.user_answer);
-            if (!options.includes(question.correct_answer)) {
-                options.push(question.correct_answer);
-            }
 
             return {
                 exerciseId: question.exercise_id,
                 question: question.question_text,
-                options: options,
+                options: optionsResult.rows.map(row => row.option_text),
                 correctAnswer: question.correct_answer
             };
         }));
