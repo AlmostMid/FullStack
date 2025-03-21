@@ -21,7 +21,7 @@ app.get('/exercises/lesson/:lessonId', async (req, res) => {
 
     try {
         const questionsResult = await pool.query(`
-            SELECT exercise_id, question_text, correct_answer
+            SELECT exercise_id, question_text, correct_answer, options
             FROM exercises
             WHERE lesson_id = $1
         `, [lessonId]);
@@ -30,15 +30,8 @@ app.get('/exercises/lesson/:lessonId', async (req, res) => {
             return res.status(404).json({ error: `No exercises found for lesson ID: ${lessonId}` });
         }
 
-        const questionsWithOptions = await Promise.all(questionsResult.rows.map(async (question) => {
-            const optionsResult = await pool.query(`
-                SELECT DISTINCT user_answer FROM user_exercises WHERE exercise_id = $1
-            `, [question.exercise_id]);
-
-            let options = optionsResult.rows.map(row => row.user_answer);
-            if (!options.includes(question.correct_answer)) {
-                options.push(question.correct_answer);
-            }
+        const questionsWithOptions = questionsResult.rows.map((question) => {
+            const options = question.options;
 
             return {
                 exerciseId: question.exercise_id,
@@ -46,7 +39,7 @@ app.get('/exercises/lesson/:lessonId', async (req, res) => {
                 options: options,
                 correctAnswer: question.correct_answer
             };
-        }));
+        });
 
         res.json(questionsWithOptions);
     } catch (err) {
