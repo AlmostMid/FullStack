@@ -27,7 +27,7 @@ function Profile() {
 
       // Mock data to simulate the response
       const mockData = {
-        username: 'Alice',
+        username: 'Tobias Lugter',
         points: 120,
         level: 2,
         profilePicUrl: 'https://via.placeholder.com/100', // Example placeholder
