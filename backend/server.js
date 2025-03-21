@@ -20,7 +20,7 @@ app.get('/exercises/lesson/:lessonId', async (req, res) => {
 
     try {
         const questionsResult = await pool.query(`
-            SELECT exercise_id, question_text, correct_answer, options
+            SELECT exercise_id, question_text, correct_answer, options::text[] AS options
             FROM exercises
             WHERE lesson_id = $1
         `, [lessonId]);
@@ -35,7 +35,7 @@ app.get('/exercises/lesson/:lessonId', async (req, res) => {
             return {
                 exerciseId: question.exercise_id,
                 question: question.question_text,
-                options: optionsResult.rows.map(row => row.option_text),
+                options: options,
                 correctAnswer: question.correct_answer
             };
         });
