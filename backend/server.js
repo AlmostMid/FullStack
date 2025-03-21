@@ -19,34 +19,24 @@ app.get('/exercises/lesson/:lessonId', async (req, res) => {
     const { lessonId } = req.params;
 
     try {
+        // Fetch exercises including the ARRAY column
         const questionsResult = await pool.query(`
-            SELECT exercise_id, question_text, correct_answer, ARRAY(SELECT unnest(options)) AS options
+            SELECT exercise_id, question_text, correct_answer, options
             FROM exercises
-            WHERE lesson_id = $1;
-
-
+            WHERE lesson_id = $1
         `, [lessonId]);
 
         if (questionsResult.rowCount === 0) {
             return res.status(404).json({ error: `No exercises found for lesson ID: ${lessonId}` });
         }
 
-        const questionsWithOptions = questionsResult.rows.map((question) => {
-            let options = question.options;
-
-            // Ensure it's a proper array
-            if (typeof options === "string") {
-                options = options.replace(/^{|}$/g, "").split(",");
-            }
-
-            return {
-                exerciseId: question.exercise_id,
-                question: question.question_text,
-                options: options,  // This should now be a correct array
-                correctAnswer: question.correct_answer
-            };
-        });
-
+        // Convert options from ARRAY format to a proper JavaScript array
+        const questionsWithOptions = questionsResult.rows.map((question) => ({
+            exerciseId: question.exercise_id,
+            question: question.question_text,
+            options: Array.isArray(question.options) ? question.options : [], // Ensure it's an array
+            correctAnswer: question.correct_answer
+        }));
 
         res.json(questionsWithOptions);
     } catch (err) {
@@ -54,6 +44,7 @@ app.get('/exercises/lesson/:lessonId', async (req, res) => {
         res.status(500).json({ error: `Database error: ${err.message}` });
     }
 });
+
 
 // ✅ Fetch a single lesson name by lessonId
 app.get('/lessons/:lessonId', async (req, res) => {
