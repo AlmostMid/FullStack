@@ -1,16 +1,13 @@
 // src/pages/Profile.js
 import React, { useEffect, useState } from 'react';
-import './Profile.css'; // <-- Make sure to import this new CSS file
+import './Profile.css';
 
 function Profile() {
   const [user, setUser] = useState({
     username: '',
     points: 0,
     level: 0,
-   
   });
-
-  const [selectedFile, setSelectedFile] = useState(null);
 
   useEffect(() => {
     fetchUserData();
@@ -18,27 +15,38 @@ function Profile() {
 
   const fetchUserData = async () => {
     try {
-      // In a real app, replace this with a call to your backend
-      // Example: const res = await fetch('/api/user/profile');
-      // const data = await res.json();
-      // setUser(data);
-
-      // Mock data
+      // Mock data (replace with real API call)
       const mockData = {
         username: 'Tobias Lugter RIGTIG MEGET',
         points: 120,
         level: 2,
-       
       };
-
       setUser(mockData);
     } catch (error) {
       console.error('Error fetching user data:', error);
     }
   };
 
+  // Return your JSX wrapped in parentheses
+  return (
+    <div className="profile-page">
+      <div className="profile-header">
+        <h1>Din Profil</h1>
+      </div>
 
-  return 
+      <div className="profile-content">
+        <div className="profile-row">
+          <span className="label">Brugernavn:</span> {user.username}
+        </div>
+        <div className="profile-row">
+          <span className="label">Point:</span> {user.points}
+        </div>
+        <div className="profile-row">
+          <span className="label">Level:</span> {user.level}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Profile;
