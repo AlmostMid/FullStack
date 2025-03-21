@@ -20,9 +20,11 @@ app.get('/exercises/lesson/:lessonId', async (req, res) => {
 
     try {
         const questionsResult = await pool.query(`
-            SELECT exercise_id, question_text, correct_answer, options::text[] AS options
+            SELECT exercise_id, question_text, correct_answer, ARRAY(SELECT unnest(options)) AS options
             FROM exercises
-            WHERE lesson_id = $1
+            WHERE lesson_id = $1;
+
+
         `, [lessonId]);
 
         if (questionsResult.rowCount === 0) {
@@ -30,15 +32,21 @@ app.get('/exercises/lesson/:lessonId', async (req, res) => {
         }
 
         const questionsWithOptions = questionsResult.rows.map((question) => {
-            const options = question.options;
+            let options = question.options;
+
+            // Ensure it's a proper array
+            if (typeof options === "string") {
+                options = options.replace(/^{|}$/g, "").split(",");
+            }
 
             return {
                 exerciseId: question.exercise_id,
                 question: question.question_text,
-                options: options,
+                options: options,  // This should now be a correct array
                 correctAnswer: question.correct_answer
             };
         });
+
 
         res.json(questionsWithOptions);
     } catch (err) {
