@@ -15,7 +15,6 @@ const pool = new Pool({
     connectionString: process.env.DATABASE_URL
 });
 
-// ✅ Fetch exercises for a lesson
 app.get('/exercises/lesson/:lessonId', async (req, res) => {
     const { lessonId } = req.params;
 
@@ -36,7 +35,7 @@ app.get('/exercises/lesson/:lessonId', async (req, res) => {
             return {
                 exerciseId: question.exercise_id,
                 question: question.question_text,
-                options: options,
+                options: optionsResult.rows.map(row => row.option_text),
                 correctAnswer: question.correct_answer
             };
         });
