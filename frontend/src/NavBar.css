@@ -17,7 +17,7 @@
   z-index: 9999;
 
   /* Fade effect */
-  opacity: 0.1;                /* Start partially transparent */
+  opacity: 0.05;                /* Start partially transparent */
   transition: opacity 0.3s ease;
 }
 
