@@ -1,0 +1,66 @@
+/* Profile.css */
+
+/* 1) Overall Page Container */
+.profile-page {
+    /* A dark navy background, matching your screenshot */
+    background-color: #0a1f44;
+    color: #ffffff;
+    min-height: 100vh; /* Fill the viewport */
+    margin: 0;
+    /* If your NavBar is fixed at the top, you might add some padding-top here:
+       padding-top: 60px; 
+    */
+    font-family: sans-serif;
+  }
+  
+  /* 2) Header Section */
+  .profile-header {
+    background-color: #0f2f58;
+    padding: 1rem;
+    text-align: left; /* or center, if you prefer */
+  }
+  
+  .profile-header h1 {
+    margin: 0;
+    font-weight: 400; /* lighter style if you prefer */
+    font-size: 2rem;
+  }
+  
+  /* 3) Content Rows (Username, Points, Level, etc.) */
+  .profile-content {
+    padding: 1.5rem;
+  }
+  
+  .profile-row {
+    background-color: #273a5e;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+  }
+  
+  /* For the label text inside each row (e.g., "Brugernavn:") */
+  .profile-row .label {
+    font-weight: bold;
+    margin-right: 8px;
+  }
+  
+  /* 4) Profile Picture Section */
+  .profile-picture-section {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: block; /* so margin: 0 auto can center it if you want */
+    margin: 0 auto 1rem auto; 
+  }
+  
+  /* 5) Upload Section */
+  .upload-section {
+    margin-top: 1rem;
+  }
+  
