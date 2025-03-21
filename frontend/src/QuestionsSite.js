@@ -13,6 +13,7 @@ function QuestionsSite() {
     fetch(`/api/exercises/lesson/${lessonId}`)
       .then(response => response.json())
       .then(data => {
+        console.log('Fetched questions:', data);
         setQuestions(data);
         setCurrentQuestionIndex(0);
         setSelected(null);
