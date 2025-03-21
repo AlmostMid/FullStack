@@ -45,22 +45,6 @@
     margin-right: 8px;
   }
   
-  /* 4) Profile Picture Section */
-  .profile-picture-section {
-    padding: 1.5rem;
-    text-align: center;
-  }
   
-  .profile-picture {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    display: block; /* so margin: 0 auto can center it if you want */
-    margin: 0 auto 1rem auto; 
-  }
   
-  /* 5) Upload Section */
-  .upload-section {
-    margin-top: 1rem;
-  }
   
