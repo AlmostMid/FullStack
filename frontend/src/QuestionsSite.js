@@ -29,7 +29,7 @@ function QuestionsSite() {
       setIsCorrect(false);
     }
   };
-
+  
   const nextQuestion = () => {
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     setSelected(null);
